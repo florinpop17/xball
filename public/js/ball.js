@@ -7,7 +7,8 @@ class Ball {
     }
     
     draw() {
-        fill(60);
+        fill(255);
+        noStroke();
         ellipse(this.x, this.y, this.r*2, this.r*2);
     }
     

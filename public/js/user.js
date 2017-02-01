@@ -8,6 +8,7 @@ class User {
     
     draw(){
         fill(200, 0, 100);
+        noStroke();
         ellipse(this.x, this.y, this.r*2, this.r*2);
     }
     
