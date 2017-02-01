@@ -2,8 +2,15 @@ class Ball {
     constructor() {
         this.x = random(width);
         this.y = random(height);
+        this.velX = 0;
+        this.velY = 0;
         this.r = 15;
         this.vel = 0;
+    }
+    
+    update() {
+        this.x += this.velX;
+        this.y += this.velY;
     }
     
     draw() {

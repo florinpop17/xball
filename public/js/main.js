@@ -15,6 +15,7 @@ function draw() {
     user.edges();
     user.draw();
     
+    ball.update();
     ball.edges();
     ball.draw();
 }
