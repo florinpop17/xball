@@ -29,7 +29,7 @@ class User {
     edges() {
         if (this.x > width + this.r) {
             this.x = -this.r;
-        } else if (user.x < -this.r) {
+        } else if (this.x < -this.r) {
             this.x = width + this.r;
         }
 
