@@ -9,11 +9,12 @@ function setup(){
 }
 
 function draw() {
-    background(0);
+    background('#00680A');
     
     user.move();
     user.edges();
     user.draw();
     
+    ball.edges();
     ball.draw();
 }
