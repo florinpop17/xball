@@ -2,7 +2,7 @@
   "name": "xball",
   "version": "1.0.0",
   "description": "Socket.io + p5.js based game",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
