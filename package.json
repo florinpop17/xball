@@ -1,0 +1,21 @@
+{
+  "name": "xball",
+  "version": "1.0.0",
+  "description": "Socket.io + p5.js based game",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/florinpop17/xball.git"
+  },
+  "keywords": [],
+  "author": "Florin Pop",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/florinpop17/xball/issues"
+  },
+  "homepage": "https://github.com/florinpop17/xball#readme"
+}
