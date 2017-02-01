@@ -13,16 +13,16 @@ class Ball {
     }
     
     edges() {
-        if (this.x > width + this.r) {
-            this.x = -this.r;
-        } else if (this.x < -this.r) {
-            this.x = width + this.r;
+        if(this.x + this.r > width){
+            this.x = width - this.r;
+        } else if (this.x - this.r < 0) {
+            this.x = this.r;
         }
-
-        if (this.y > height + this.r) {
-            this.y = -this.r;
-        } else if (this.y < -this.r) {
-            this.y = height + this.r;
+        
+        if(this.y + this.r > height){
+            this.y = height - this.r;
+        } else if (this.y - this.r < 0) {
+            this.y = this.r;
         }
     }
 }
