@@ -32,7 +32,7 @@ function draw() {
 
 function drawField() {
     // Draw field margins
-    fill(0, 0, 0, 0);
+    fill('#00680A');
     strokeWeight(10);
     stroke(255);
     rect(0, 0, width, height);
@@ -42,8 +42,11 @@ function drawField() {
     line(width/2, 0, width/2, height);
     
     // Draw middle cercle
-    fill('#00680A');
     ellipse(width/2, height/2, 100, 100);
+    
+    // Draw middle point
+    fill(255);
+    ellipse(width/2, height/2, 10, 10);
 }
 
 function pushBall(users, ball) {
@@ -53,7 +56,7 @@ function pushBall(users, ball) {
 
         if(d-3 <= user.r + ball.r){
             if(user.isKicking) {
-                x = createVector(ball.location.x - user.location.x, ball.location.y - user.location.y).setMag(30);
+                x = createVector(ball.location.x - user.location.x, ball.location.y - user.location.y).setMag(20);
             } else {
                 x = createVector(ball.location.x - user.location.x, ball.location.y - user.location.y).setMag(1.5);
                 user.isKicking = false;
