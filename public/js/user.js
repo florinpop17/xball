@@ -12,7 +12,7 @@ class User {
         // Coloring depending on team
         if(this.team === 'teal'){
             fill(116, 194, 225);
-        } else if(this.team === 'purple'){
+        } else if(this.team === 'pink'){
             fill(200, 0, 100);
         }
         
@@ -27,16 +27,16 @@ class User {
     }
     
     move(){
-        if (keyIsDown(LEFT_ARROW) && this.team === 'purple')
+        if (keyIsDown(LEFT_ARROW) && this.team === 'pink')
             this.location.x -= this.speed;
 
-        if (keyIsDown(RIGHT_ARROW) && this.team === 'purple')
+        if (keyIsDown(RIGHT_ARROW) && this.team === 'pink')
             this.location.x += this.speed;
 
-        if (keyIsDown(UP_ARROW) && this.team === 'purple')
+        if (keyIsDown(UP_ARROW) && this.team === 'pink')
             this.location.y -= this.speed;
 
-        if (keyIsDown(DOWN_ARROW) && this.team === 'purple')
+        if (keyIsDown(DOWN_ARROW) && this.team === 'pink')
             this.location.y += this.speed;
         
         // j code = 74

@@ -95,7 +95,7 @@ function keyPressed() {
     // 88 is the keyCode for the 'x' button
     // 83 is the keyCode for the 's' button
     users.forEach(user => {
-        if(keyCode === 88 && user.team === 'purple') {
+        if(keyCode === 88 && user.team === 'pink') {
             user.isKicking = true;
         }
         if(keyCode === 83 && user.team === 'teal') {

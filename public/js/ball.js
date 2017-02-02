@@ -5,16 +5,19 @@ class Ball {
         this.acceleration = createVector(0, 0);
         this.r = 15;
         this.frictionConstant = 0.05;
+        this.stop = false;
         
         this.windowOffset = _windowOffset;
     }
     
     update() {
-        this.applyFriction();
-        this.velocity.add(this.acceleration);
-        this.location.add(this.velocity);
-        
-        this.acceleration.mult(0);
+        if(!this.stop){
+            this.applyFriction();
+            this.velocity.add(this.acceleration);
+            this.location.add(this.velocity);
+
+            this.acceleration.mult(0);
+        }
     }
     
     applyFriction() {
@@ -38,6 +41,7 @@ class Ball {
     
     scored(team) {
         console.log(`Team ${team} scored!`);
+        this.stop = true;
     }
     
     edges() {
@@ -50,10 +54,10 @@ class Ball {
         // Check if inside the goal right-side && score team 1 (pink)
         } else if (this.location.x + this.r > width && this.location.y > height/2 - goal.y/2 || this.location.x + this.r > width && this.location.y < height/2 + goal.y/2){
                 this.location.x = width - this.r;
-                this.scored('pink');
+                this.scored('pink');            
         
         // Check if outside the goal (y check) left-side
-        } else if(this.location.x - this.r < windowOffset && this.location.y < height/2 - goal.y/2 || this.location.x - this.r < windowOffset && this.location.y > height/2 + goal.y/2){
+        } else if (this.location.x - this.r < windowOffset && this.location.y < height/2 - goal.y/2 || this.location.x - this.r < windowOffset && this.location.y > height/2 + goal.y/2){
                 this.location.x = windowOffset + this.r;
                 this.velocity.x *= -1;
         
@@ -62,7 +66,7 @@ class Ball {
                 this.location.x = this.r;
                 this.scored('teal');
         }
-        
+                
         if(this.location.y + this.r > height){
             this.velocity.y *= -1;
             this.location.y = height - this.r;
