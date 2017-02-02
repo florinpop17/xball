@@ -4,7 +4,7 @@ let user;
 let x;
 
 function setup(){
-    createCanvas(800, 600);
+    createCanvas(800, 500);
     
     users.push(new User('teal'));
     users.push(new User('purple'));
@@ -37,6 +37,9 @@ function drawField() {
     stroke(255);
     rect(0, 0, width, height);
     
+    // Draw middle line
+    strokeWeight(6);
+    line(width/2, 0, width/2, height);
 }
 
 function pushBall(users, ball) {
