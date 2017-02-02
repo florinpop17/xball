@@ -66,7 +66,7 @@ function drawField() {
     
     // Draw the 4 edges
     fill('#2980b9');
-    stroke(0);
+    stroke('#2980b9');
     // Top-left edge
     rect(0, 0, windowOffset - 3, height/2 - goal.y/2);
     // Bottom-left edge
