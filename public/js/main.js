@@ -105,26 +105,26 @@ function checkBallCollision(users, ball) {
 }
 
 function keyPressed() {
-    // 17 is the keyCode for the 'ctrl' button
-    // 32 is the keyCode for the 'space' button
+    // 76 is the keyCode for the 'l' button
+    // 70 is the keyCode for the 'f' button
     users.forEach(user => {
-        if(keyCode === 17 && user.team === 'pink') {
+        if(keyCode === 76 && user.team === 'pink') {
             user.isKicking = true;
         }
-        if(keyCode === 32 && user.team === 'teal') {
+        if(keyCode === 70 && user.team === 'teal') {
             user.isKicking = true;
         }
     });
 }
 
 function keyReleased() {
-    // 17 is the keyCode for the 'ctrl' button
-    // 32 is the keyCode for the 'space' button
+    // 76 is the keyCode for the 'l' button
+    // 70 is the keyCode for the 'f' button
     users.forEach(user => {
-        if(keyCode === 17 && user.team === 'pink'){
+        if(keyCode === 76 && user.team === 'pink'){
             user.isKicking = false;
         }    
-        if (keyCode === 32 && user.team === 'teal') {
+        if (keyCode === 70 && user.team === 'teal') {
             user.isKicking = false;
         }
     });
