@@ -16,7 +16,7 @@ function draw() {
     background('#00680A');
     drawField();
     
-    pushBall(users, ball);
+    checkBallCollision(users, ball);
     
     users.forEach(user => {
         user.move();
@@ -49,7 +49,7 @@ function drawField() {
     ellipse(width/2, height/2, 10, 10);
 }
 
-function pushBall(users, ball) {
+function checkBallCollision(users, ball) {
     
     users.forEach(user => {
         let d = dist(user.location.x, user.location.y, ball.location.x, ball.location.y);

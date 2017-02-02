@@ -1,6 +1,6 @@
 class Ball {
     constructor() {
-        this.location = createVector(width/2 + 50, height/2 + 50);
+        this.location = createVector(width/2, height/2);
         this.velocity = createVector(0, 0);
         this.acceleration = createVector(0, 0);
         this.r = 15;
