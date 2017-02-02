@@ -5,6 +5,8 @@
 
 body, html {
     background-color: black;
+    color: white;
+    font-family: Roboto, sans-serif;
     height: 100%;
 }
 
@@ -12,4 +14,25 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+}
+
+h3 {
+    margin-top: 20px;
+}
+
+p {
+    letter-spacing: 1px;
+}
+
+canvas {
+    margin-top: 20px;
+}
+
+.teal {
+    color: rgb(116, 194, 225);
+}
+
+.pink {
+    color: rgb(200, 0, 100);
 }
