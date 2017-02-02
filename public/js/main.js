@@ -105,10 +105,10 @@ function checkBallCollision(users, ball) {
 }
 
 function keyPressed() {
-    // 191 is the keyCode for the '/' button
+    // 17 is the keyCode for the 'ctrl' button
     // 32 is the keyCode for the 'space' button
     users.forEach(user => {
-        if(keyCode === 191 && user.team === 'pink') {
+        if(keyCode === 17 && user.team === 'pink') {
             user.isKicking = true;
         }
         if(keyCode === 32 && user.team === 'teal') {
@@ -118,10 +118,10 @@ function keyPressed() {
 }
 
 function keyReleased() {
-    // 191 is the keyCode for the '/' button
+    // 17 is the keyCode for the 'ctrl' button
     // 32 is the keyCode for the 'space' button
     users.forEach(user => {
-        if(keyCode === 191 && user.team === 'pink'){
+        if(keyCode === 17 && user.team === 'pink'){
             user.isKicking = false;
         }    
         if (keyCode === 32 && user.team === 'teal') {
