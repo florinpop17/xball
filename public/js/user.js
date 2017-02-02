@@ -1,13 +1,14 @@
 class User {
     constructor(){
         this.location = createVector(width/2, height/2);
-        this.r = 30;
+        this.r = 25;
         this.speed = 5;
     }
     
     draw(){
         fill(200, 0, 100);
-        noStroke();
+        strokeWeight(3);
+        stroke(0);
         ellipse(this.location.x, this.location.y, this.r*2, this.r*2);
     }
     
