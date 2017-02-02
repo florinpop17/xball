@@ -17,6 +17,12 @@ class Ball {
             this.location.add(this.velocity);
 
             this.acceleration.mult(0);
+            
+            console.log('true');
+        } else {
+            this.stop = false;
+            console.log('false')
+            console.log(this);
         }
     }
     
@@ -35,6 +41,7 @@ class Ball {
     stopBall() {
         this.stop = true;
         this.acceleration.mult(0);
+        this.velocity.mult(0);
     }
     
     draw() {
