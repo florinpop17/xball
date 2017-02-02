@@ -1,7 +1,7 @@
 class User {
     constructor(_team){
         this.location = createVector(random(width), random(height));
-        this.r = 25;
+        this.r = 20;
         this.speed = 3;
         this.isKicking = false;
         this.team = _team;

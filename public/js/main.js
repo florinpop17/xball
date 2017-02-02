@@ -4,7 +4,7 @@ let user;
 let x;
 
 let windowOffset = 30;
-let goal = {x: 30, y: 120}; 
+let goal = {x: 30, y: 150}; 
 
 function setup(){
     createCanvas(800, 500);
@@ -62,6 +62,16 @@ function drawField() {
     rect(width-goal.x + 3, 0, windowOffset - 3, height/2 - goal.y/2);
     // Bottom-right edge
     rect(width-goal.x + 3, height/2 + goal.y/2, windowOffset - 3, height/2 - goal.y/2);
+    
+    // Drawing the 2 goals
+    fill('#00680A')
+    stroke(255);
+    
+    // Left goal
+    rect(2, height/2 - goal.y/2, goal.x, goal.y);
+    
+    // Right goal
+    rect(width - goal.x - 2, height/2 - goal.y/2, goal.x, goal.y);
 }
 
 function checkBallCollision(users, ball) {
