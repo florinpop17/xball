@@ -30,6 +30,7 @@ class Ball {
     draw() {
         fill(255);
         strokeWeight(3);
+        stroke(0);
         ellipse(this.location.x, this.location.y, this.r*2, this.r*2);
     }
     

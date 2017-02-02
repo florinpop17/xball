@@ -14,7 +14,7 @@ function setup(){
 function draw() {
     background('#00680A');
     
-    kickBall(users, ball);
+    pushBall(users, ball);
     
     user.move();
     user.edges();
@@ -26,13 +26,32 @@ function draw() {
     
 }
 
-function kickBall(users, ball) {
+function pushBall(users, ball) {
     
     let d = dist(user.location.x, user.location.y, ball.location.x, ball.location.y);
 
     if(d < user.r + ball.r){
-        x = createVector(ball.location.x - user.location.x, ball.location.y - user.location.y).setMag(1);
+        if(user.isKicking) {
+            x = createVector(ball.location.x - user.location.x, ball.location.y - user.location.y).setMag(30);
+        } else {
+            x = createVector(ball.location.x - user.location.x, ball.location.y - user.location.y).setMag(1);
+            user.isKicking = false;
+        }
         ball.applyForce(x);
     }
 
+}
+
+function keyPressed() {
+    // 88 is the keyCode for the 'x' button
+    if(keyCode === 88) {
+        user.isKicking = true;
+    }
+}
+
+function keyReleased() {
+    // 88 is the keyCode for the 'x' button
+    if(keyCode === 88) {
+        user.isKicking = false;
+    }    
 }

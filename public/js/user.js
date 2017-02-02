@@ -2,13 +2,19 @@ class User {
     constructor(){
         this.location = createVector(random(width), random(height));
         this.r = 25;
-        this.speed = 5;
+        this.speed = 1;
+        this.isKicking = false;
     }
     
     draw(){
         fill(200, 0, 100);
         strokeWeight(3);
-        stroke(0);
+        
+        // Making the stroke white if is in kicking mode
+        if(this.isKicking)
+            stroke(255);
+        else
+            stroke(0);
         ellipse(this.location.x, this.location.y, this.r*2, this.r*2);
     }
     
@@ -24,7 +30,6 @@ class User {
 
         if (keyIsDown(DOWN_ARROW))
             this.location.y += this.speed;
-        
     }
     
     edges() {
