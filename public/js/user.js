@@ -1,9 +1,10 @@
 class User {
-    constructor(){
+    constructor(_team){
         this.location = createVector(random(width), random(height));
         this.r = 25;
-        this.speed = 1;
+        this.speed = 3;
         this.isKicking = false;
+        this.team = _team;
     }
     
     draw(){
