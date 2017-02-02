@@ -14,6 +14,7 @@ function setup(){
 
 function draw() {
     background('#00680A');
+    drawField();
     
     pushBall(users, ball);
     
@@ -26,6 +27,15 @@ function draw() {
     ball.update();
     ball.edges();
     ball.draw();
+    
+}
+
+function drawField() {
+    // Draw field margins
+    fill(0, 0, 0, 0);
+    strokeWeight(10);
+    stroke(255);
+    rect(0, 0, width, height);
     
 }
 
