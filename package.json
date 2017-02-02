@@ -1,7 +1,7 @@
 {
   "name": "xball",
   "version": "1.0.0",
-  "description": "Socket.io + p5.js based game",
+  "description": "p5.js based game",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",

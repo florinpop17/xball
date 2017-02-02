@@ -121,10 +121,10 @@ function keyReleased() {
     // 191 is the keyCode for the '/' button
     // 32 is the keyCode for the 'space' button
     users.forEach(user => {
-        if(keyCode === 191){
+        if(keyCode === 191 && user.team === 'pink'){
             user.isKicking = false;
         }    
-        if (keyCode === 32) {
+        if (keyCode === 32 && user.team === 'teal') {
             user.isKicking = false;
         }
     });
