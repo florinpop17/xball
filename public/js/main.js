@@ -12,6 +12,7 @@ function draw() {
     background('#00680A');
     
     kickBall(user, ball);
+    ball.applyFriction();
     
     user.move();
     user.edges();

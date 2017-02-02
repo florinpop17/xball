@@ -13,6 +13,16 @@ class Ball {
         this.acceleration.mult(0);
     }
     
+    applyFriction() {
+        let friction = this.velocity.copy();
+        friction.mult(-1);
+        
+        let c = 0.1;
+        friction.mult(c);
+        
+        this.applyForce(friction);
+    }
+    
     applyForce(force) {
         this.acceleration.add(force);
         return force;
