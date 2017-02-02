@@ -40,6 +40,10 @@ function drawField() {
     // Draw middle line
     strokeWeight(6);
     line(width/2, 0, width/2, height);
+    
+    // Draw middle cercle
+    fill('#00680A');
+    ellipse(width/2, height/2, 100, 100);
 }
 
 function pushBall(users, ball) {
