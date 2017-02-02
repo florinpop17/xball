@@ -17,12 +17,8 @@ class Ball {
             this.location.add(this.velocity);
 
             this.acceleration.mult(0);
-            
-            console.log('true');
         } else {
             this.stop = false;
-            console.log('false')
-            console.log(this);
         }
     }
     
