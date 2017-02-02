@@ -4,9 +4,9 @@
 }
 
 body, html {
-    background-color: black;
+    background-color: #2980b9;
     color: white;
-    font-family: Roboto, sans-serif;
+    font-family: Helvetica, "Trebuchet MS", Verdana, sans-serif;
     height: 100%;
 }
 
@@ -19,6 +19,7 @@ body {
 
 h3 {
     margin-top: 20px;
+    margin-bottom: 5px;
 }
 
 p {
@@ -31,8 +32,10 @@ canvas {
 
 .teal {
     color: rgb(116, 194, 225);
+    text-shadow: 1px 1px rgba(0,0,0,0.75);
 }
 
 .pink {
     color: rgb(200, 0, 100);
+    text-shadow: 1px 1px rgba(0,0,0,0.75);
 }
