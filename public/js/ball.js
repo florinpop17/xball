@@ -19,6 +19,11 @@ class Ball {
         ellipse(this.x, this.y, this.r*2, this.r*2);
     }
     
+    push(_velX, _velY) {
+        this.x += _velX;
+        this.y += _velY;
+    }
+    
     edges() {
         if(this.x + this.r > width){
             this.x = width - this.r;

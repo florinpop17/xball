@@ -20,11 +20,14 @@ function draw() {
     ball.update();
     ball.edges();
     ball.draw();
+    
 }
 
-function kickBall(_user, _ball) {
-    let d = dist(_user.x, _user.y, _ball.x, _ball.y);
+function kickBall(user, ball) {
+    let d = dist(user.x, user.y, ball.x, ball.y);
     
-    if(d < _user.r + _ball.r)
-        console.log('HIT');
+    if(d < user.r + _ball.r){
+        ball.x += norm(ball.x - user.x, 1, 10) * 3;
+        ball.y += norm(ball.y - user.y, 1, 10) * 3;
+    }
 }
