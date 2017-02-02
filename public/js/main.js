@@ -16,20 +16,7 @@ function setup(){
 }
 
 function draw() {
-    background('#00680A');
-    drawField();
     
-    checkBallCollision(users, ball);
-    
-    users.forEach(user => {
-        user.move();
-        user.edges();
-        user.draw();
-    });
-    
-    ball.update();
-    ball.edges();
-    ball.draw();
     
 }
 
