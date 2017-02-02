@@ -5,7 +5,7 @@ class User {
         this.speed = 3;
         this.isKicking = false;
         this.team = _team;
-        this.team = _windowOffset;
+        this.windowOffset = _windowOffset;
     }
     
     draw(){
@@ -58,10 +58,10 @@ class User {
     }
     
     edges() {
-        if(this.location.x + this.r > width){
-            this.location.x = width - this.r;
-        } else if (this.location.x - this.r < 0) {
-            this.location.x = this.r;
+        if(this.location.x + this.r > width - this.windowOffset){
+            this.location.x = width - this.r - this.windowOffset;
+        } else if (this.location.x - this.r < this.windowOffset) {
+            this.location.x = this.r + this.windowOffset;
         }
         
         if(this.location.y + this.r > height){

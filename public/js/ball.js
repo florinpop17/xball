@@ -37,12 +37,15 @@ class Ball {
     }
     
     edges() {
-        if(this.location.x + this.r > width){
-            this.location.x = width - this.r;
+               
+        if(this.location.x + this.r > width - windowOffset){
+            if(this.location.y + this.r > height/2 - goal.y/2 && this.location.y + this.r < height/2 + goal.y/2){
+                this.location.x = width - this.r;
+            }
             this.velocity.x *= -1;
-        } else if (this.location.x - this.r < 0) {
+        } else if (this.location.x - this.r < windowOffset) {
             this.velocity.x *= -1;
-            this.location.x = this.r;
+            this.location.x = this.r + windowOffset;
         }
         
         if(this.location.y + this.r > height){
@@ -52,5 +55,24 @@ class Ball {
             this.velocity.y *= -1;
             this.location.y = this.r;
         }
+                
+                
+                
+        // Working with no goal
+//        if(this.location.x + this.r > width - windowOffset){
+//            this.location.x = width - this.r - windowOffset; 
+//            this.velocity.x *= -1;
+//        } else if (this.location.x - this.r < windowOffset) {
+//            this.velocity.x *= -1;
+//            this.location.x = this.r + windowOffset;
+//        }
+//        
+//        if(this.location.y + this.r > height){
+//            this.velocity.y *= -1;
+//            this.location.y = height - this.r;
+//        } else if (this.location.y - this.r < 0) {
+//            this.velocity.y *= -1;
+//            this.location.y = this.r;
+//        }
     }
 }

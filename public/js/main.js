@@ -9,14 +9,27 @@ let goal = {x: 30, y: 150};
 function setup(){
     createCanvas(800, 500);
     
-    users.push(new User('teal', ));
-    users.push(new User('purple', ));
+    users.push(new User('teal', windowOffset));
+    users.push(new User('purple', windowOffset));
     
-    ball = new Ball(windowOffset);
+    ball = new Ball(windowOffset, goal);
 }
 
 function draw() {
+    background('#00680A');
+    drawField();
     
+    checkBallCollision(users, ball);
+    
+    users.forEach(user => {
+        user.move();
+        user.edges();
+        user.draw();
+    });
+    
+    ball.update();
+    ball.edges();
+    ball.draw();
     
 }
 
