@@ -1,6 +1,6 @@
 class Ball {
     constructor() {
-        this.location = createVector(random(width), random(height));
+        this.location = createVector(width/2 + 50, height/2 + 50);
         this.velocity = createVector(0, 0);
         this.acceleration = createVector(0, 0);
         this.r = 15;
@@ -10,6 +10,7 @@ class Ball {
         this.velocity.add(this.acceleration);
         this.location.add(this.velocity);
         
+        this.acceleration.mult(0);
     }
     
     applyForce(force) {
