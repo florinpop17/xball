@@ -1,10 +1,11 @@
 class User {
-    constructor(_team){
+    constructor(_team, _windowOffset){
         this.location = createVector(random(width), random(height));
         this.r = 20;
         this.speed = 3;
         this.isKicking = false;
         this.team = _team;
+        this.team = _windowOffset;
     }
     
     draw(){

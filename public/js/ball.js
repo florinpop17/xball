@@ -1,10 +1,12 @@
 class Ball {
-    constructor() {
+    constructor(_windowOffset) {
         this.location = createVector(width/2, height/2);
         this.velocity = createVector(0, 0);
         this.acceleration = createVector(0, 0);
         this.r = 15;
         this.frictionConstant = 0.05;
+        
+        this.windowOffset = _windowOffset;
     }
     
     update() {

@@ -9,10 +9,10 @@ let goal = {x: 30, y: 150};
 function setup(){
     createCanvas(800, 500);
     
-    users.push(new User('teal'));
-    users.push(new User('purple'));
+    users.push(new User('teal', ));
+    users.push(new User('purple', ));
     
-    ball = new Ball();
+    ball = new Ball(windowOffset);
 }
 
 function draw() {
