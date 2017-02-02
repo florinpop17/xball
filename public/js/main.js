@@ -11,7 +11,7 @@ function setup(){
 function draw() {
     background('#00680A');
     
-    hitBall(user, ball);
+    kickBall(user, ball);
     
     user.move();
     user.edges();
@@ -22,7 +22,7 @@ function draw() {
     ball.draw();
 }
 
-function hitBall(_user, _ball) {
+function kickBall(_user, _ball) {
     let d = dist(_user.x, _user.y, _ball.x, _ball.y);
     
     if(d < _user.r + _ball.r)
