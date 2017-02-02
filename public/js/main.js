@@ -6,7 +6,9 @@ let x;
 let windowOffset = 30;
 let goal = {x: 30, y: 150};
 
-let score = 'Score 0-0';
+let score = '0 - 0';
+let tealScore = 0;
+let pinkScore = 0;
 
 function setup(){
     createCanvas(800, 500);
@@ -30,8 +32,8 @@ function draw() {
         user.draw();
     });
     
+    ballEdges(ball);
     ball.update();
-    ball.edges();
     ball.draw();
     
 }
@@ -40,7 +42,8 @@ function drawScore() {
     fill(255);
     strokeWeight(0);
     textSize(16);
-    text(score, 50, 30);
+    text('Pink - Teal', 40, 30);
+    text(score, 63, 50);
 }
 
 function drawField() {
@@ -102,24 +105,70 @@ function checkBallCollision(users, ball) {
 }
 
 function keyPressed() {
-    // 88 is the keyCode for the 'x' button
-    // 83 is the keyCode for the 's' button
+    // 191 is the keyCode for the '/' button
+    // 32 is the keyCode for the 'space' button
     users.forEach(user => {
-        if(keyCode === 88 && user.team === 'pink') {
+        if(keyCode === 191 && user.team === 'pink') {
             user.isKicking = true;
         }
-        if(keyCode === 83 && user.team === 'teal') {
+        if(keyCode === 32 && user.team === 'teal') {
             user.isKicking = true;
         }
     });
 }
 
 function keyReleased() {
-    // 88 is the keyCode for the 'x' button
-    // 83 is the keyCode for the 's' button
+    // 191 is the keyCode for the '/' button
+    // 32 is the keyCode for the 'space' button
     users.forEach(user => {
-        if(keyCode === 88 || keyCode === 83) {
+        if(keyCode === 191 || keyCode === 32) {
             user.isKicking = false;
         }    
     });
+}
+
+function ballEdges(ball) {
+    
+    // Check if outside the goal (y check) right-side
+    if(ball.location.x + ball.r > width - windowOffset && ball.location.y < height/2 - goal.y/2 || ball.location.x + ball.r > width - windowOffset && ball.location.y > height/2 + goal.y/2){
+            ball.location.x = width - ball.r - windowOffset;
+            ball.velocity.x *= -1;
+
+    // Check if inside the goal right-side && score team 1 (pink)
+    } else if (ball.location.x + ball.r > width && ball.location.y > height/2 - goal.y/2 || ball.location.x + ball.r > width && ball.location.y < height/2 + goal.y/2){
+            ball.location.x = width - ball.r;
+            scored('pink');            
+
+    // Check if outside the goal (y check) left-side
+    } else if (ball.location.x - ball.r < windowOffset && ball.location.y < height/2 - goal.y/2 || ball.location.x - ball.r < windowOffset && ball.location.y > height/2 + goal.y/2){
+            ball.location.x = windowOffset + ball.r;
+            ball.velocity.x *= -1;
+
+    // Check if inside the goal left-side && score team 1 (pink)
+    } else if (ball.location.x - ball.r < 0 && ball.location.y > height/2 - goal.y/2 || ball.location.x - ball.r < 0 && ball.location.y < height/2 + goal.y/2){
+            ball.location.x = ball.r;
+            scored('teal');
+    }
+
+    if(ball.location.y + ball.r > height){
+        ball.velocity.y *= -1;
+        ball.location.y = height - ball.r;
+    } else if (ball.location.y - ball.r < 0) {
+        ball.velocity.y *= -1;
+        ball.location.y = ball.r;
+    }
+}
+
+function scored(team) {
+    if(team === 'pink')
+        pinkScore++;
+    if(team === 'teal')
+        tealScore++;
+    
+    ball.location.x = width / 2;
+    ball.location.y = height / 2;
+    
+    ball.stopBall();
+    
+    score = `${pinkScore} - ${tealScore}`;
 }

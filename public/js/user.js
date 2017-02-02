@@ -1,6 +1,6 @@
 class User {
     constructor(_team, _windowOffset){
-        this.location = createVector(random(width), random(height));
+        this.location = createVector((_team === 'pink') ? 10 : width - 50, height/2);
         this.r = 20;
         this.speed = 3;
         this.isKicking = false;
@@ -39,20 +39,20 @@ class User {
         if (keyIsDown(DOWN_ARROW) && this.team === 'pink')
             this.location.y += this.speed;
         
-        // j code = 74
-        if (keyIsDown(74) && this.team === 'teal')
+        // a code = 65
+        if (keyIsDown(65) && this.team === 'teal')
             this.location.x -= this.speed;
         
-        // l code = 76
-        if (keyIsDown(76) && this.team === 'teal')
+        // d code = 68
+        if (keyIsDown(68) && this.team === 'teal')
             this.location.x += this.speed;
 
-        // i code = 73
-        if (keyIsDown(73) && this.team === 'teal')
+        // w code = 87
+        if (keyIsDown(87) && this.team === 'teal')
             this.location.y -= this.speed;
 
-        // k code = 75
-        if (keyIsDown(75) && this.team === 'teal')
+        // s code = 83
+        if (keyIsDown(83) && this.team === 'teal')
             this.location.y += this.speed;
         
     }
