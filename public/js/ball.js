@@ -4,9 +4,11 @@ class Ball {
         this.velocity = createVector(0, 0);
         this.acceleration = createVector(0, 0);
         this.r = 15;
+        this.frictionConstant = 0.05;
     }
     
     update() {
+        this.applyFriction();
         this.velocity.add(this.acceleration);
         this.location.add(this.velocity);
         
@@ -15,10 +17,7 @@ class Ball {
     
     applyFriction() {
         let friction = this.velocity.copy();
-        friction.mult(-1);
-        
-        let c = 0.1;
-        friction.mult(c);
+        friction.mult(-1 * this.frictionConstant);
         
         this.applyForce(friction);
     }

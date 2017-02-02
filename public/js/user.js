@@ -1,6 +1,6 @@
 class User {
     constructor(){
-        this.location = createVector(width/2, height/2);
+        this.location = createVector(random(width), random(height));
         this.r = 25;
         this.speed = 5;
     }
