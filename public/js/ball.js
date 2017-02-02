@@ -47,14 +47,20 @@ class Ball {
                 this.location.x = width - this.r - windowOffset;
                 this.velocity.x *= -1;
         
-        // Check if inside the goal right-side && score team 1 (purple)
+        // Check if inside the goal right-side && score team 1 (pink)
         } else if (this.location.x + this.r > width && this.location.y > height/2 - goal.y/2 || this.location.x + this.r > width && this.location.y < height/2 + goal.y/2){
                 this.location.x = width - this.r;
-                this.scored('purple');
+                this.scored('pink');
         
         // Check if outside the goal (y check) left-side
-        }      this.location.x = width - this.r;
-                this.scored('purple');
+        } else if(this.location.x - this.r < windowOffset && this.location.y < height/2 - goal.y/2 || this.location.x - this.r < windowOffset && this.location.y > height/2 + goal.y/2){
+                this.location.x = windowOffset + this.r;
+                this.velocity.x *= -1;
+        
+        // Check if inside the goal left-side && score team 1 (pink)
+        } else if (this.location.x - this.r < 0 && this.location.y > height/2 - goal.y/2 || this.location.x - this.r < 0 && this.location.y < height/2 + goal.y/2){
+                this.location.x = this.r;
+                this.scored('teal');
         }
         
         if(this.location.y + this.r > height){

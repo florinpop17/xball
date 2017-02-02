@@ -10,7 +10,7 @@ function setup(){
     createCanvas(800, 500);
     
     users.push(new User('teal', windowOffset));
-    users.push(new User('purple', windowOffset));
+    users.push(new User('pink', windowOffset));
     
     ball = new Ball(windowOffset, goal);
 }
