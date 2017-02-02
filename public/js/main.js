@@ -24,10 +24,12 @@ function draw() {
 }
 
 function kickBall(user, ball) {
-    let d = dist(user.x, user.y, ball.x, ball.y);
+    let d = dist(user.location.x, user.location.y, ball.location.x, ball.location.y);
     
     if(d < user.r + ball.r){
-        ball.x += norm(ball.x - user.x, 1, 10) * 3;
-        ball.y += norm(ball.y - user.y, 1, 10) * 3;
+        ball.velocity.x += ball.location.x - user.location.x;
+        ball.velocity.y += ball.location.y - user.location.y;
+        
+//        ball.location.add(ball.location.sub(user.location)).normalize();
     }
 }

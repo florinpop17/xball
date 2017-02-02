@@ -2,13 +2,17 @@ class Ball {
     constructor() {
         this.location = createVector(random(width), random(height));
         this.velocity = createVector(0, 0);
-        this.acceleration = createVector(0, 1);
+        this.acceleration = createVector(0, 0);
         this.r = 15;
     }
     
     update() {
         this.velocity.add(this.acceleration);
         this.location.add(this.velocity);
+    }
+    
+    applyForce(force) {
+        this.acceleration = force;
     }
     
     draw() {
