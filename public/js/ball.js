@@ -36,16 +36,25 @@ class Ball {
         ellipse(this.location.x, this.location.y, this.r*2, this.r*2);
     }
     
+    scored(team) {
+        console.log(`Team ${team} scored!`);
+    }
+    
     edges() {
-               
-        if(this.location.x + this.r > width - windowOffset){
-            if(this.location.y + this.r > height/2 - goal.y/2 && this.location.y + this.r < height/2 + goal.y/2){
+        
+        // Check if outside the goal (y check) right-side
+        if(this.location.x + this.r > width - windowOffset && this.location.y < height/2 - goal.y/2 || this.location.x + this.r > width - windowOffset && this.location.y > height/2 + goal.y/2){
+                this.location.x = width - this.r - windowOffset;
+                this.velocity.x *= -1;
+        
+        // Check if inside the goal right-side && score team 1 (purple)
+        } else if (this.location.x + this.r > width && this.location.y > height/2 - goal.y/2 || this.location.x + this.r > width && this.location.y < height/2 + goal.y/2){
                 this.location.x = width - this.r;
-            }
-            this.velocity.x *= -1;
-        } else if (this.location.x - this.r < windowOffset) {
-            this.velocity.x *= -1;
-            this.location.x = this.r + windowOffset;
+                this.scored('purple');
+        
+        // Check if outside the goal (y check) left-side
+        }      this.location.x = width - this.r;
+                this.scored('purple');
         }
         
         if(this.location.y + this.r > height){
