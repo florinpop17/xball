@@ -26,7 +26,7 @@ function draw() {
 function kickBall(user, ball) {
     let d = dist(user.x, user.y, ball.x, ball.y);
     
-    if(d < user.r + _ball.r){
+    if(d < user.r + ball.r){
         ball.x += norm(ball.x - user.x, 1, 10) * 3;
         ball.y += norm(ball.y - user.y, 1, 10) * 3;
     }

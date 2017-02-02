@@ -1,27 +1,19 @@
 class Ball {
     constructor() {
-        this.x = random(width);
-        this.y = random(height);
-        this.velX = 0;
-        this.velY = 0;
+        this.location = createVector(random(width), random(height));
+        this.velocity = createVector(0, 0);
         this.r = 15;
-        this.vel = 0;
     }
     
     update() {
-        this.x += this.velX;
-        this.y += this.velY;
+        this.velocity.add(this.acceleration);
+        this.location.add(this.velocity);
     }
     
     draw() {
         fill(255);
-        noStroke();
+        strokeWeight(3);
         ellipse(this.x, this.y, this.r*2, this.r*2);
-    }
-    
-    push(_velX, _velY) {
-        this.x += _velX;
-        this.y += _velY;
     }
     
     edges() {
