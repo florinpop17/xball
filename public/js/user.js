@@ -8,7 +8,13 @@ class User {
     }
     
     draw(){
-        fill(200, 0, 100);
+        // Coloring depending on team
+        if(this.team === 'teal'){
+            fill(116, 194, 225);
+        } else if(this.team === 'purple'){
+            fill(200, 0, 100);
+        }
+        
         strokeWeight(3);
         
         // Making the stroke white if is in kicking mode
@@ -20,17 +26,34 @@ class User {
     }
     
     move(){
-        if (keyIsDown(LEFT_ARROW))
+        if (keyIsDown(LEFT_ARROW) && this.team === 'purple')
             this.location.x -= this.speed;
 
-        if (keyIsDown(RIGHT_ARROW))
+        if (keyIsDown(RIGHT_ARROW) && this.team === 'purple')
             this.location.x += this.speed;
 
-        if (keyIsDown(UP_ARROW))
+        if (keyIsDown(UP_ARROW) && this.team === 'purple')
             this.location.y -= this.speed;
 
-        if (keyIsDown(DOWN_ARROW))
+        if (keyIsDown(DOWN_ARROW) && this.team === 'purple')
             this.location.y += this.speed;
+        
+        // j code = 74
+        if (keyIsDown(74) && this.team === 'teal')
+            this.location.x -= this.speed;
+        
+        // l code = 76
+        if (keyIsDown(76) && this.team === 'teal')
+            this.location.x += this.speed;
+
+        // i code = 73
+        if (keyIsDown(73) && this.team === 'teal')
+            this.location.y -= this.speed;
+
+        // k code = 75
+        if (keyIsDown(75) && this.team === 'teal')
+            this.location.y += this.speed;
+        
     }
     
     edges() {
