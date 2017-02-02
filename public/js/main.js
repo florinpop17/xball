@@ -3,6 +3,9 @@ let ball;
 let user;
 let x;
 
+let windowOffset = 30;
+let goal = {x: 30, y: 120}; 
+
 function setup(){
     createCanvas(800, 500);
     
@@ -35,7 +38,7 @@ function drawField() {
     fill('#00680A');
     strokeWeight(10);
     stroke(255);
-    rect(0, 0, width, height);
+    rect(windowOffset, 0, width - windowOffset * 2, height);
     
     // Draw middle line
     strokeWeight(6);
@@ -47,6 +50,18 @@ function drawField() {
     // Draw middle point
     fill(255);
     ellipse(width/2, height/2, 10, 10);
+    
+    // Draw the 4 edges
+    fill(0);
+    stroke(0);
+    // Top-left edge
+    rect(0, 0, windowOffset - 3, height/2 - goal.y/2);
+    // Bottom-left edge
+    rect(0, height/2 + goal.y/2, windowOffset - 3, height/2 - goal.y/2);
+    // Top-right edge
+    rect(width-goal.x + 3, 0, windowOffset - 3, height/2 - goal.y/2);
+    // Bottom-right edge
+    rect(width-goal.x + 3, height/2 + goal.y/2, windowOffset - 3, height/2 - goal.y/2);
 }
 
 function checkBallCollision(users, ball) {
