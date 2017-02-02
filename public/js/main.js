@@ -4,7 +4,9 @@ let user;
 let x;
 
 let windowOffset = 30;
-let goal = {x: 30, y: 150}; 
+let goal = {x: 30, y: 150};
+
+let score = 'Score 0-0';
 
 function setup(){
     createCanvas(800, 500);
@@ -18,6 +20,7 @@ function setup(){
 function draw() {
     background('#00680A');
     drawField();
+    drawScore();
     
     checkBallCollision(users, ball);
     
@@ -31,6 +34,13 @@ function draw() {
     ball.edges();
     ball.draw();
     
+}
+
+function drawScore() {
+    fill(255);
+    strokeWeight(0);
+    textSize(16);
+    text(score, 50, 30);
 }
 
 function drawField() {
