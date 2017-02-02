@@ -17,7 +17,7 @@ function draw() {
     
     pushBall(users, ball);
     
-    user.forEach(user => {
+    users.forEach(user => {
         user.move();
         user.edges();
         user.draw();
@@ -48,14 +48,23 @@ function pushBall(users, ball) {
 
 function keyPressed() {
     // 88 is the keyCode for the 'x' button
-    if(keyCode === 88) {
-        user.isKicking = true;
-    }
+    // 83 is the keyCode for the 's' button
+    users.forEach(user => {
+        if(keyCode === 88 && user.team === 'purple') {
+            user.isKicking = true;
+        }
+        if(keyCode === 83 && user.team === 'teal') {
+            user.isKicking = true;
+        }
+    });
 }
 
 function keyReleased() {
     // 88 is the keyCode for the 'x' button
-    if(keyCode === 88) {
-        user.isKicking = false;
-    }    
+    // 83 is the keyCode for the 's' button
+    users.forEach(user => {
+        if(keyCode === 88 || keyCode === 83) {
+            user.isKicking = false;
+        }    
+    });
 }
