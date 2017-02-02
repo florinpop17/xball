@@ -9,10 +9,13 @@ class Ball {
     update() {
         this.velocity.add(this.acceleration);
         this.location.add(this.velocity);
+        
+        this.velocity.limit(5);
     }
     
     applyForce(force) {
         this.acceleration = force;
+        return force;
     }
     
     draw() {

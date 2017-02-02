@@ -27,8 +27,8 @@ function kickBall(user, ball) {
     let d = dist(user.location.x, user.location.y, ball.location.x, ball.location.y);
     
     if(d < user.r + ball.r){
-        ball.velocity.x += ball.location.x - user.location.x;
-        ball.velocity.y += ball.location.y - user.location.y;
+        let x = createVector(ball.location.x - user.location.x, ball.location.y - user.location.y);
+        ball.applyForce(x);
         
 //        ball.location.add(ball.location.sub(user.location)).normalize();
     }
