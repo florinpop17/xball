@@ -1,7 +1,6 @@
 class User {
     constructor(){
-        this.x = width/2;
-        this.y = width/2;
+        this.location = createVector(width/2, height/2);
         this.r = 30;
         this.speed = 5;
     }
@@ -9,35 +8,35 @@ class User {
     draw(){
         fill(200, 0, 100);
         noStroke();
-        ellipse(this.x, this.y, this.r*2, this.r*2);
+        ellipse(this.location.x, this.location.y, this.r*2, this.r*2);
     }
     
     move(){
         if (keyIsDown(LEFT_ARROW))
-            this.x -= this.speed;
+            this.location.x -= this.speed;
 
         if (keyIsDown(RIGHT_ARROW))
-            this.x += this.speed;
+            this.location.x += this.speed;
 
         if (keyIsDown(UP_ARROW))
-            this.y -= this.speed;
+            this.location.y -= this.speed;
 
         if (keyIsDown(DOWN_ARROW))
-            this.y += this.speed;
+            this.location.y += this.speed;
         
     }
     
     edges() {
-        if(this.x + this.r > width){
-            this.x = width - this.r;
-        } else if (this.x - this.r < 0) {
-            this.x = this.r;
+        if(this.location.x + this.r > width){
+            this.location.x = width - this.r;
+        } else if (this.location.x - this.r < 0) {
+            this.location.x = this.r;
         }
         
-        if(this.y + this.r > height){
-            this.y = height - this.r;
-        } else if (this.y - this.r < 0) {
-            this.y = this.r;
+        if(this.location.y + this.r > height){
+            this.location.y = height - this.r;
+        } else if (this.location.y - this.r < 0) {
+            this.location.y = this.r;
         }
     }
 }
